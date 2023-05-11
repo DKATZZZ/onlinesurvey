@@ -1,0 +1,13 @@
+res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+res.setHeader("Access-Control-Allow-Credentials", "false");
+res.setHeader("Access-Control-Allow-Headers", "content-type");
+res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+
+//Append issues when res.append is used
+ res.append('Access-Control-Allow-Origin','*');
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'content-type');
+
+  /*Append creates duplicates for Origin in headers, which will throw xmlhttprequest error at front end server when user tries to access the url, and also 
+  cors will block the request due to duplicate origins created in header.
+  Hence to avoid this issue use setHeader instead of append.*/
